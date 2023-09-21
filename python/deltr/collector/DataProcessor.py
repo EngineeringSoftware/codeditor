@@ -17,13 +17,17 @@ from deltr.collector.diff_utils import (
 
 logger = su.log.get_logger(__name__, su.LoggingUtils.INFO)
 
-class DataProcessor:
 
-    
+class DataProcessor:
     SPLITS = ["train", "valid", "test"]
 
     def meta_edit_data_process(
-        self, exp: str, src_lang: str = "java", tgt_lang: str = "cs", model_name: str = "metaEdits", setting: str = "time-segmented"
+        self,
+        exp: str,
+        src_lang: str = "java",
+        tgt_lang: str = "cs",
+        model_name: str = "metaEdits",
+        setting: str = "time-segmented",
     ):
         """
         Process dataset for meta edit model.
@@ -35,9 +39,7 @@ class DataProcessor:
         raw_data_dir = Macros.data_dir / "raw" / setting
 
         for split in self.SPLITS:
-            data_list = su.io.load(
-                raw_data_dir / f"delta-translation-{split}.jsonl"
-            )
+            data_list = su.io.load(raw_data_dir / f"delta-translation-{split}.jsonl")
 
             model_input_file = model_data_dir / f"{split}.{exp}.src"
             model_output_file = model_data_dir / f"{split}.{exp}.tgt"
@@ -96,9 +98,13 @@ class DataProcessor:
             su.io.dump(model_output_file, model_outputs, su.io.Fmt.txtList)
             su.io.dump(model_ground_truth_file, golds, su.io.Fmt.txtList)
 
-
     def edit_translation_data_process(
-        self, exp: str, model_name: str = "edit-translation", src_lang: str = "java", tgt_lang: str = "cs", setting: str = "time-segmented"
+        self,
+        exp: str,
+        model_name: str = "edit-translation",
+        src_lang: str = "java",
+        tgt_lang: str = "cs",
+        setting: str = "time-segmented",
     ):
         """
         Process dataset for edit translation model.
@@ -109,9 +115,7 @@ class DataProcessor:
         raw_data_dir = Macros.data_dir / "raw" / setting
 
         for split in self.SPLITS:
-            data_list = su.io.load(
-                raw_data_dir / f"delta-translation-{split}.jsonl"
-            )
+            data_list = su.io.load(raw_data_dir / f"delta-translation-{split}.jsonl")
 
             model_input_file = model_data_dir / f"{split}.{exp}.src"
             model_output_file = model_data_dir / f"{split}.{exp}.tgt"
