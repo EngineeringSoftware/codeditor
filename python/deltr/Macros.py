@@ -1,4 +1,3 @@
-
 import os
 from pathlib import Path
 
@@ -19,7 +18,6 @@ class Macros:
     config_dir: Path = python_dir / "configs"
     doc_dir: Path = project_dir / "docs"
     gleu_dir: Path = this_dir / "gleu"
-
 
     downloads_dir: Path = project_dir / "_downloads"
     repos_downloads_dir: Path = downloads_dir / "repos"
