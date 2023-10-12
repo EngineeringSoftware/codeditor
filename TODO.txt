@@ -17,8 +17,9 @@
 
 - code:
     - data:
-        - mining, filtering dataset --> raw-data
-        - processing model data
+        + processing model data
+            python -m deltr.collector.DataProcessor meta_edit_data_process --exp cs2java --src_lang cs --tgt_lang java
+            python -m deltr.collector.DataProcessor edit_translation_data_process --exp cs2java --src_lang cs --tgt_lang java --setting cross-project
     - model:
         - training and evaluating models
         - combining models

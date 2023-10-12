@@ -1,19 +1,19 @@
 #!/bin/bash
 
 # This script prepares a conda environment for running/developing
-# TeCo, with GPU support if an Nvidia GPU is detected.
+# Codeditor, with GPU support if an Nvidia GPU is detected.
 #
 # Requires conda to be installed and available in PATH.
 #
 # Usage:
 #   ./prepare-conda-env.sh
 #   # after the script finishes, activate the environment:
-#   conda activate teco
+#   conda activate deltr
 #
 # Usage with options:
 #   ./prepare-conda-env.sh [cuda_version] [env_name] [conda_path]
 #   # cuda_version: {cpu,10.2,11.3,11.6,system} the CUDA toolkit version for PyTorch (default: "11.6" if Nvidia GPU is available detected by nvidia-smi, "cpu" otherwise)
-#   # env_name: name of the conda environment to create (default: teco)
+#   # env_name: name of the conda environment to create (default: deltr)
 #   # conda_path: path to conda.sh (default: automatically detected)
 
 
@@ -114,8 +114,6 @@ function prepare_conda_env() {
                 ;;
         esac
 
-        # Install other dependencies
-        pip install -e .[dev,vis]
 }
 
 

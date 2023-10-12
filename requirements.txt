@@ -11,3 +11,4 @@ tqdm==4.62.3
 transformers==4.16.2
 tree_sitter==0.20.0
 antlr4-python3-runtime==4.9.3
+jsonargparse==4.24.1
