@@ -27,7 +27,6 @@ def locate_ckpt(ckpt_dir: Path) -> Optional[Path]:
 
 
 def add_tokens_to_tokenizer():
-
     from transformers import RobertaTokenizer
     from deltr.collector.diff_utils import EDIT_TOKENS
 
