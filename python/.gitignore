@@ -1,0 +1,31 @@
+# Temp files
+
+*~
+\#*\#
+.DS_Store
+*.class
+*.pyc
+.pdf
+
+experiments.log
+
+target/
+
+.idea/
+*.iml
+
+/raw_data
+
+# logs
+tacc-logs/
+
+*.code-workspace
+
+# downloads dir
+_downloads/
+data/
+
+repo-data/
+
+models/
+.vscode/settings.json
