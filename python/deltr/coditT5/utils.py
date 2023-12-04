@@ -282,11 +282,9 @@ class SequenceLabelingDataset(torch.utils.data.Dataset):
         )
 
     def __len__(self):
-
         return len(self.source_code)
 
     def __getitem__(self, index: int):
-
         return {
             "code": self.source_code[index],
             "context": self.context[index],
@@ -325,7 +323,6 @@ class SequenceLabelingChunkDataset(torch.utils.data.Dataset):
         self.__split_data_to_chunks__(source_code, context, tokenized_labels)
 
     def __len__(self):
-
         return len(self.tokenized_code_input)
 
     def __split_data_to_chunks__(self, source_code, context, tokenized_labels):
@@ -372,11 +369,9 @@ class SequenceLabelingChunkDataset(torch.utils.data.Dataset):
                 self.data_index.append(index)
                 self.labels.append(tokenized_label)
 
-
         return
 
     def __getitem__(self, index: int):
-
         return {
             "code": self.tokenized_code_input[index],
             "context": self.tokenized_context_input[index],
@@ -388,7 +383,6 @@ class SequenceLabelingChunkDataset(torch.utils.data.Dataset):
 def tokenize_and_align_labels(
     source_code: List[str], labels: List[int], tokenizer: Any
 ) -> List[List[int]]:
-
     tokenized_labels = []
 
     for code, label in zip(source_code, labels):
@@ -445,7 +439,6 @@ class ExampleDataset(torch.utils.data.Dataset):
         return self.n_data
 
     def __getitem__(self, index: int) -> Tuple:
-
         if index < 0:
             index = self.n_data + index
 
@@ -495,7 +488,6 @@ class PredictDataset(torch.utils.data.Dataset):
         return self.n_data
 
     def __getitem__(self, index: int) -> Tuple:
-
         if index < 0:
             index = self.n_data + index
 

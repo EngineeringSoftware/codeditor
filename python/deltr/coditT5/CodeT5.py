@@ -121,14 +121,16 @@ class CodeT5DataModule(pl.LightningDataModule):
         )
 
     def tokenize_collate_fn_predict(self, batch_data: List[Tuple[str, str, int]]):
-
         source_batch = [self.tokenize_sequence(t[0]) for t in batch_data]
         target_batch = [self.tokenize_sequence(t[1]) for t in batch_data]
         index_batch = [t[2] for t in batch_data]
         max_length = MAX_LENGTH
         batch_size = len(source_batch)
 
-        batched_input_ids, batched_labels_ids, = (
+        (
+            batched_input_ids,
+            batched_labels_ids,
+        ) = (
             [],
             [],
         )
@@ -205,7 +207,6 @@ class CodeT5DataModule(pl.LightningDataModule):
 
 
 class CodeT5Module(pl.LightningModule):
-
     # Instantiate the model
     def __init__(
         self,
