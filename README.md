@@ -15,6 +15,33 @@ Authors: [Jiyang Zhang](https://jiyangzhang.github.io/), [Pengyu Nie](https://pe
 }
 ```
 
+## News
+May 2024
+The fine-tuned EditsTranslation model is released on 🤗 ! 🔥[cs2java](https://huggingface.co/EngineeringSoftware/EditsTranslation-cs2java) and [java2cs](https://huggingface.co/EngineeringSoftware/EditsTranlation-java2cs/settings) 
+
+## How to Use
+
+[sec-howto]: #how-to-use
+
+```python
+from transformers import T5ForConditionalGeneration, AutoTokenizer
+
+checkpoint = "EngineeringSoftware/EditsTranlation-java2cs"
+
+tokenizer = AutoTokenizer.from_pretrained(checkpoint)
+model = T5ForConditionalGeneration.from_pretrained(checkpoint)
+
+code_input = """class HelloWorld { public static void main(String[] args) { System.out.println("Hello, World!")"""
+
+input_ids = tokenizer(code_input, return_tensors="pt").input_ids
+generated_ids = model.generate(input_ids, max_length=200)
+print(tokenizer.decode(generated_ids[0], skip_special_tokens=True))
+# output: <INSERT>; } } ;<INSERT_END> class HelloWorld { public static void main(String[] args) { System.out.println("Hello, World!") ; } } ;
+```
+
+
+
+
 ## Introduction
 
 This repo contains the code and artifacts for reproducing the experiments in [Multilingual Code Co-Evolution Using Large Language Models](https://arxiv.org/abs/2307.14991).
