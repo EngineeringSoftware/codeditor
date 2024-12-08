@@ -622,7 +622,6 @@ class DataCollector:
         )
 
     def check_bad_examples(self):
-
         K = 50
         examples_to_check = io.load(Macros.data_dir / f"manual-check-{K}-examples.json")
         bad_examples = []
@@ -677,7 +676,6 @@ class DataCollector:
 
 
 def compute_minimal_code_diffs(old_tokens: List[str], new_tokens: List[str]):
-
     added_tokens = []
     del_tokens = []
 
